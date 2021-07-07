@@ -33,14 +33,14 @@ rm -rf usr/share/vim usr/share/licenses/vim bin/vim.exe bin/rvim.exe bin/rvimdif
 # Remove the non-free and other parts of sdcc, which are pretty large
 rm -rf usr/non-free usr/lib/pic16
 # Remove the tests from python, which strips another 50MB
-rm -rf mingw64/usr/lib/python3.9/test
+rm -rf mingw64/lib/python3.9/test
 
 # Make the command "python" run our installed python version
 cp mingw64/bin/python3.9.exe mingw64/bin/python3.exe
 
-# Rename the git-bash.exe into gbsdk-bash.exe
-mv git-bash.exe gbsdk-bash.exe
-mv git-cmd.exe gbsdk-cmd.exe
+# Remove the cmd version, as this does not work.
+cp git-bash.exe gbsdk-bash.exe
+rm git-cmd.exe
 
 # Package up the result
 cd ..
