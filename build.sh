@@ -38,6 +38,11 @@ rm -rf mingw64/usr/lib/python3.9/test
 # Make the command "python" run our installed python version
 cp mingw64/bin/python3.9.exe mingw64/bin/python3.exe
 
+# Rename the git-bash.exe into gbsdk-bash.exe
+mv git-bash.exe gbsdk-bash.exe
+mv git-cmd.exe gbsdk-cmd.exe
+
+# Package up the result
 cd ..
-rm -rf env.zip
-zip -r env.zip env
+rm -rf gbsdk-windows-environment.zip
+zip -r gbsdk-windows-environment.zip env
