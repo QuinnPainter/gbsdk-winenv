@@ -9,10 +9,10 @@ download() {
     fi
 }
 
-download PortableGit-2.32.0.2-64-bit.7z.exe https://github.com/git-for-windows/git/releases/download/v2.32.0.windows.2/PortableGit-2.32.0.2-64-bit.7z.exe
-download make-4.3-1-x86_64.pkg.tar.xz https://mirror.msys2.org/msys/x86_64/make-4.3-1-x86_64.pkg.tar.xz
-download sdcc-4.1.0-x64-setup.exe https://sourceforge.net/projects/sdcc/files/sdcc-win64/4.1.0/sdcc-4.1.0-x64-setup.exe/download
-download rgbds-0.5.1-win64.zip https://github.com/gbdev/rgbds/releases/download/v0.5.1/rgbds-0.5.1-win64.zip
+download PortableGit-2.36.0-64-bit.7z.exe https://github.com/git-for-windows/git/releases/download/v2.36.0.windows.1/PortableGit-2.36.0-64-bit.7z.exe
+download make-4.3-3-x86_64.pkg.tar.zst https://mirror.msys2.org/msys/x86_64/make-4.3-3-x86_64.pkg.tar.zst
+download sdcc-4.2.0-x64-setup.exe https://sourceforge.net/projects/sdcc/files/sdcc-win64/4.2.0/sdcc-4.2.0-x64-setup.exe/download
+download rgbds-0.5.2-win64.zip https://github.com/gbdev/rgbds/releases/download/v0.5.2/rgbds-0.5.2-win64.zip
 download mingw-w64-x86_64-python3.9-3.9.6-3-any.pkg.tar.zst https://mirror.msys2.org/mingw/mingw64/mingw-w64-x86_64-python3.9-3.9.6-3-any.pkg.tar.zst
 
 rm -rf env
@@ -20,12 +20,12 @@ mkdir env
 cd env
 
 # Extract all the tools we need
-7z x ../PortableGit-2.32.0.2-64-bit.7z.exe
-tar -xJf ../make-4.3-1-x86_64.pkg.tar.xz
+7z x ../PortableGit-2.36.0-64-bit.7z.exe
+tar -I zstd -xvf ../make-4.3-3-x86_64.pkg.tar.zst
 tar -I zstd -xvf ../mingw-w64-x86_64-python3.9-3.9.6-3-any.pkg.tar.zst
 cd usr
-7z x ../../sdcc-4.1.0-x64-setup.exe
-unzip ../../rgbds-0.5.1-win64.zip -d bin
+7z x ../../sdcc-4.2.0-x64-setup.exe
+unzip ../../rgbds-0.5.2-win64.zip -d bin
 cd ..
 
 # Remove vim, it's a big chunk of the install size.
